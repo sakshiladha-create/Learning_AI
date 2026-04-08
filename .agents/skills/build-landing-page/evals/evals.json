@@ -1,0 +1,75 @@
+{
+  "skill": "build-landing-page",
+  "version": "1.0.0",
+  "evals": [
+    {
+      "id": "blp-001",
+      "description": "Build a free audit landing page for a digital agency",
+      "input": "build-landing-page free-seo-audit \"Get a Free SEO Audit for Your NYC Business\"",
+      "expected": {
+        "file_created": "src/app/free-seo-audit/page.tsx",
+        "cro_score": "9/9",
+        "checks": [
+          "ServiceTrustBar present in first 3 sections",
+          "All 9 CRO hacks present",
+          "No text-4xl/5xl/6xl heading classes",
+          "CTA booster under every button",
+          "generateMetadata exported",
+          "JSON-LD with LocalBusiness + Offer schemas",
+          "Honeypot field in lead form",
+          "Minimal header with no nav links",
+          "npx tsc --noEmit passes with 0 errors",
+          "routes.json updated",
+          "state.json landingPagesBuilt updated"
+        ]
+      }
+    },
+    {
+      "id": "blp-002",
+      "description": "Build a PPC landing page (should be no-indexed)",
+      "input": "build-landing-page google-ads-seo-nyc \"NYC SEO Agency — #1 Google Rankings\" purpose=paid",
+      "expected": {
+        "file_created": "src/app/google-ads-seo-nyc/page.tsx",
+        "cro_score": "9/9",
+        "checks": [
+          "robots: { index: false, follow: false } in metadata",
+          "All 9 CRO hacks present",
+          "No HTML nav links in header",
+          "Sticky mobile CTA bar present",
+          "Framer Motion on all sections"
+        ]
+      }
+    },
+    {
+      "id": "blp-003",
+      "description": "Build a waitlist landing page for a new service launch",
+      "input": "build-landing-page ai-seo-waitlist \"Join the Waitlist for AI-Powered SEO\" purpose=waitlist",
+      "expected": {
+        "file_created": "src/app/ai-seo-waitlist/page.tsx",
+        "cro_score": "9/9",
+        "checks": [
+          "Lead form with honeypot present",
+          "All 9 CRO hacks present",
+          "IntentTestimonial × 2 instances",
+          "ComparisonTable is card-based not HTML table",
+          "PullQuote uses bg-[#2D3A2E]",
+          "TLDRSection before final CTA"
+        ]
+      }
+    },
+    {
+      "id": "blp-004",
+      "description": "Inherits existing design system when .claude/design.json exists",
+      "input": "build-landing-page brand-identity-offer \"Free Brand Identity Consultation\"",
+      "setup": "Project has existing .claude/CLAUDE.md and .claude/design.json",
+      "expected": {
+        "checks": [
+          "Theme selection step skipped",
+          "Uses colors from existing design.json",
+          "Uses font from existing design.json",
+          "Business data from existing business.json"
+        ]
+      }
+    }
+  ]
+}

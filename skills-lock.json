@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "build-landing-page": {
+      "source": "jayanti-prajapati/agent-skills",
+      "sourceType": "github",
+      "computedHash": "6556f9e462ff86e5f49f37e2ea9b2cc6442c7b69e804203ac252ddcf06bbcf1a"
+    }
+  }
+}
